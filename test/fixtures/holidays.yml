@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  holi_day: 2022-02-02 12:58:06
+  date_details: MyString
+
+two:
+  holi_day: 2022-02-02 12:58:06
+  date_details: MyString

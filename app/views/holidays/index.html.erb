@@ -1,0 +1,29 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 class="text-success"><center>Holidays</center></h1>
+<br>
+<%= render "form", holiday: @holiday %>
+
+<br>
+<table class="table table-striped table-success">
+  <thead>
+    <tr>
+      <th scope="col">Sl.no</th>
+      <th scope="col">Holday</th>
+      <th scope="col">Date Details</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%count =1 %>
+    <% @holidays.each do |holiday| %>
+    <tr>
+      <th scope="row"><%= count %></th>
+      <% count +=1 %>
+      <td><%= holiday.holday.strftime("%d %b %Y") %></td>
+      <td><%= holiday.date_details %></td>
+      <td><%= button_to "Delete", holiday, class:"btn btn-sucess" , method: :delete %></td>
+    </tr>
+    <%end%>
+    </tbody></table>
+

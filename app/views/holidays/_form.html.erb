@@ -1,0 +1,82 @@
+<div><center>
+<%= form_with(model: holiday,  :html => {:class => 'row row-cols-lg-auto g-3 align-items-center needs-validation'}) do |form| %>
+  <% if holiday.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(holiday.errors.count, "error") %> prohibited this holiday from being saved:</h2>
+
+      <ul>
+        <% holiday.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+   <div class="col-12">
+    <%= form.label :holy_day, style: "display: block" %>
+   </div>
+
+  <div class="col-12">
+    <%#= form.label :holy_day, style: "display: block" %>
+    <%= form.date_field :holday ,placeholder: "Enter Holyday", class:"form-control" %>
+  </div>
+
+  <div class="col-12">
+    <%#= form.label :date_details, style: "display: block" %>
+    <%= form.text_field :date_details,placeholder: "Enter Holiday Details", :type => "text", class:"form-control"%>
+  </div>
+
+  <div class="col-auto">
+    <%= form.button "ADD", class:"btn btn-success", method: :submit %>
+  </div>
+  <div class="col-auto">
+    <%= link_to 'Cancel', root_path, class:"btn btn-primary"  %>
+  </div>
+<% end %>
+</center>
+</div>
+
+<!-- <div class="span12">
+    
+<form accept-charset="UTF-8" action="/admin/clients" class="well form-inline form-search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
+  <fieldset>
+    <h3><center> Add Holiday </center> </h3><br> 
+    <span class="floatl date" style="padding-left:51px; width:200px"> Date: 
+          
+            <input class="input-small date-picker" id="reference_detail_signed_date" name="reference_detail[signed_date]" placeholder="dd/mm/yyyy" size="30" style="width:150px" type="text" data-parsley-date="true" data-parsley-ui-enabled="false"><a class="btn btn-mini picker"><i class="icon-calendar"></i></a>
+
+        </span>
+        <span style="padding-left:51px">Position:  <input size="40" style="width:200px" type="text" value="TEST"></span>
+        <span style="padding-left:40px">
+        <input class="btn btn-primary" name="commit" type="submit" value="Add" style="padding-left:12px"></span>
+  </fieldset>
+  
+</form>
+  </div>
+  <div class="span12">
+
+  
+ <table class="table table-striped">
+  <tbody>
+    <tr>
+      <th class="header">Date</th>
+      <th class="header">Date Details</th>
+      <th class="header">Actions</th>
+    </tr>
+    <tr>
+      <td><strong>
+      17 Mar 2022
+      </strong></td>
+      <td>St Patrick's Day</td>
+      <td> Detele </td>
+     </tr>
+       <tr>
+      <td><strong>
+       15 April 2022
+      </strong></td>
+      <td>Good Friday</td>
+      <td> Detele </td>
+       </tr>
+    </tbody>
+   </table>
+
+   -->

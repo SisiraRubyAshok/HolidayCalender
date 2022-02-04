@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Plants</h1>
+
+<div id="plants">
+  <% @plants.each do |plant| %>
+    <%= render plant %>
+    <p>
+      <%#= link_to "Show this plant", plant %>
+      <li>  <%= link_to "Show this plant", plant %> <br><%= link_to "Hide", "", class: 'hide', data: {'js-hide-link' => true} %></li>
+    </p>
+  <% end %>
+</div>
+<div data-controller="hello"> </div>
+<%= link_to "New plant", new_plant_path %>
