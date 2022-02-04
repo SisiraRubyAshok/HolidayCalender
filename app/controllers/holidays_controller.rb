@@ -3,7 +3,7 @@ class HolidaysController < ApplicationController
 
   # GET /holidays or /holidays.json
   def index
-    # @holidays = Holiday.all
+    @nxt = Holiday.where("holday >= ?", Date.today).order(holday: :asc).first
     setup_holidays
   end
 
@@ -77,7 +77,14 @@ class HolidaysController < ApplicationController
     end
 
     def setup_holidays
-    @holidays = Holiday.where("holday >= ?", Date.today).order(holday: :desc)
+    if params[:search] && !params[:clear].present?
+    search_term = params[:search].downcase.gsub(/\s+/, "")
+    @holidays = Holiday.where("holday >= ?", Date.today).order(holday: :desc).select { |holyday| holyday.date_details.include?(search_term) || holyday.holday.strftime("%d %b %Y").to_s.downcase.include?(search_term)}
+    else
+      @holidays = Holiday.where("holday >= ?", Date.today).order(holday: :desc)
+      params[:search]=nil
+    end
+
     # or any other method to fetch all your questions
 
     @holiday ||= Holiday.new
